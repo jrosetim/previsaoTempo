@@ -1,38 +1,21 @@
 import axios from "axios";
 
-//  class api{
-//     constructor(){
-//          this.buttonEl = document.querySelector('button[id=consultar]')
-//          this.textoEl = document.querySelector('input[id=local]');
+ class api{
+    constructor(key, cidade){
+        this.key = key;
+        this.cidade = cidade;
         
-//          this.getApiAxios();
-//     }         
+         this.getTemperatura();
+    }         
 
-//     getApiAxios(){
-//     return axios.create({
-//             baseURL: 'api.openweathermap.org/data/2.5/weather' 
-//         });
-// }
+    getTemperatura(){
+        return axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.cidade}&units=metric&appid=${this.key}`); 
+    }
+}
 
-        
-//         this.getBaseUrl();
-//     }
 
-//      getBaseUrl(){
-//          const apiaxios = axios.create({
-//             baseURL: 'api.openweathermap.org/data/2.5/weather' 
-//         })
-//      }
-    
-
-//     // teste(){
-//     //     console.log('testando exportação de classe');
-//     // }
-
- //}
-
- const api = axios.create({
-    baseURL: 'https://api.openweathermap.org/data/2.5/weather' 
-});
+//  const api = axios.create({
+//     baseURL: 'https://api.openweathermap.org/data/2.5/weather' 
+// });
 
 export default api;

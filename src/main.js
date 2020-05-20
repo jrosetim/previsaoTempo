@@ -18,7 +18,11 @@ class App{
 
     async getPrevisao(event){
         event.preventDefault();
-        const response = await api.get(`?q=${this.textoEl.value}&units=metric&appid=${this.key}`);
+        //const response = await api.get(`?q=${this.textoEl.value}&units=metric&appid=${this.key}`);
+
+        const newApi = new api(this.key, this.textoEl.value);
+
+        const response = await newApi.getTemperatura();
 
         if (response.length === 0)
             return
